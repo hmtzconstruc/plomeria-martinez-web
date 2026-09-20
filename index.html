@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Despacho Técnico Hnos. Martínez | Mantenimiento Urgente</title>
     <meta name="description" content="Servicios urgentes de plomería, electricidad y destape de drenajes en Cuernavaca, Jiutepec, Zapata y Temixco. Atención 24/7.">
-    <style>
+   <style>
         :root {
-            --bg-color: #121212;
-            --surface-color: #1e1e1e;
-            --text-main: #e0e0e0;
-            --text-muted: #9e9e9e;
-            --alert-red: #d32f2f;
-            --warn-yellow: #ffc107;
+            --bg-color: #f4f7f6;
+            --surface-color: #ffffff;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --brand-blue: #0d47a1;
+            --brand-light: #1976d2;
             --wa-green: #25d366;
-            --call-blue: #1976d2;
+            --call-blue: #0288d1;
             --mail-orange: #f57c00;
-            --border-color: #333;
+            --border-color: #e0e0e0;
+            --alert-red: #d32f2f;
         }
 
         body {
-            font-family: 'Courier New', Courier, monospace; /* Tipografía técnica / Orden de servicio */
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
@@ -29,207 +30,220 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* Cinta de precaución superior */
-        .hazard-tape {
-            background: repeating-linear-gradient(
-                45deg,
-                var(--warn-yellow),
-                var(--warn-yellow) 10px,
-                #000 10px,
-                #000 20px
-            );
-            height: 15px;
-            width: 100%;
+        /* Barra de Anuncio Superior */
+        .top-bar {
+            background-color: var(--brand-blue);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-size: 0.9em;
         }
 
-       header {
+        header {
             background-color: var(--surface-color);
-            border: 2px solid var(--border-color);
-            padding: 20px;
-            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-top: 5px solid var(--brand-light);
         }
 
         .header-top {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             flex-wrap: wrap-reverse;
             gap: 15px;
-            border-bottom: 1px solid var(--border-color); 
-            padding-bottom: 15px; 
-            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .brand-box {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .doc-type {
+            font-size: 0.9em;
+            color: var(--brand-light);
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .brand-title {
+            font-size: 2.5em;
+            color: var(--brand-blue);
+            margin: 0;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .brand-title span {
+            color: var(--text-main);
         }
 
         .status-badge {
             background-color: var(--alert-red);
             color: white;
-            padding: 5px 10px;
+            padding: 8px 16px;
             font-weight: bold;
+            border-radius: 20px;
             animation: pulse 2s infinite;
             white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
         }
 
         @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
-        h1, h2, h3 {
-            color: var(--warn-yellow);
-            text-transform: uppercase;
-            margin-top: 0;
-        }
-
-            .tech-info {
+        .tech-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-            margin-bottom: 20px;
-            font-size: 0.9em;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            font-size: 0.95em;
             color: var(--text-muted);
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
         }
 
         .tech-info span { color: var(--text-main); font-weight: bold; }
 
-        /* Tabla de cuadrillas / servicios */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 30px;
-            background-color: var(--surface-color);
-        }
-
-        th, td {
-            border: 1px solid var(--border-color);
-            padding: 12px;
-            text-align: left;
-        }
-
-        th { background-color: #2c2c2c; color: var(--warn-yellow); }
-
-        /* Botones de Acción Múltiple */
+        /* Panel de Botones (Estilo Píldora) */
         .action-panel {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
             justify-content: center;
             margin: 30px 0;
-            background-color: var(--surface-color);
-            padding: 20px;
-            border: 1px solid var(--border-color);
         }
 
         .btn {
-            display: inline-block;
-            padding: 12px 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
             color: white;
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
-            border-radius: 4px;
-            text-align: center;
+            border-radius: 50px;
             flex: 1 1 200px;
-            transition: filter 0.3s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .btn:hover { filter: brightness(1.1); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
         .btn-wa { background-color: var(--wa-green); }
         .btn-call { background-color: var(--call-blue); }
         .btn-mail { background-color: var(--mail-orange); }
 
-        /* Sección del Formulario (Iframe) */
-        .form-section {
-            background-color: var(--surface-color);
-            border: 2px solid var(--border-color);
-            padding: 20px;
+        /* Catálogo de Servicios (Estilo Tarjetas Limpias) */
+        section h2 {
+            color: var(--brand-blue);
+            border-bottom: 2px solid var(--brand-light);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
             margin-bottom: 30px;
         }
 
-        .form-section h2 { border-bottom: 1px dashed var(--border-color); padding-bottom: 10px; }
-
-       iframe {
-            width: 100%;
-            height: 600px; /* Aquí está el cambio */
+        th {
+            background-color: transparent;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 0.85em;
+            padding: 0 15px;
+            text-align: left;
             border: none;
-            background-color: #ffffff;
-            border-radius: 4px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
         }
 
-        /* Botón flotante WhatsApp */
+        td {
+            background-color: var(--surface-color);
+            padding: 20px 15px;
+            border: none;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        
+        tr td:first-child { border-left: 1px solid var(--border-color); border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+        tr td:last-child { border-right: 1px solid var(--border-color); border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+
+        td strong { color: var(--brand-blue); font-size: 1.1em; }
+
+        /* Etiquetas de Prioridad Diurnas */
+        .prio-badge {
+            padding: 6px 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            border-radius: 20px;
+            display: inline-block;
+            text-align: center;
+            min-width: 100px;
+        }
+        .prio-critica { background-color: #ffebee; color: #c62828; }
+        .prio-alta { background-color: #fff8e1; color: #f57f17; }
+        .prio-programada { background-color: #e8f5e9; color: #2e7d32; }
+
+        /* Sección del Formulario */
+        .form-section {
+            background-color: var(--surface-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* Botón WhatsApp Flotante Rediseñado */
         .fab-wa {
             position: fixed;
             bottom: 30px;
             right: 30px;
             background-color: var(--wa-green);
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 35px;
             text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
             z-index: 1000;
+            transition: transform 0.2s;
         }
-/* --- Ajustes de Marca --- */
-        .brand-box {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-        .doc-type {
-            font-size: 0.8em;
-            color: var(--text-muted);
-            letter-spacing: 4px;
-            margin-bottom: 5px;
-        }
-        .brand-title {
-            font-size: 2.2em;
-            color: white;
-            letter-spacing: 2px;
-            margin: 0;
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        .brand-title span {
-            color: var(--warn-yellow);
-        }
+        .fab-wa:hover { transform: scale(1.1); }
 
-        /* --- Etiquetas de Prioridad (Semáforo) --- */
-        .prio-badge {
-            padding: 5px 10px;
-            font-size: 0.85em;
-            font-weight: bold;
-            border-radius: 3px;
-            display: inline-block;
-            text-align: center;
-            min-width: 90px;
-        }
-        .prio-critica { 
-            background-color: rgba(211, 47, 47, 0.15); 
-            color: #ff5252; 
-            border: 1px solid #d32f2f; 
-        }
-        .prio-alta { 
-            background-color: rgba(255, 193, 7, 0.15); 
-            color: #ffd54f; 
-            border: 1px solid #ffc107; 
-        }
-        .prio-programada { 
-            background-color: rgba(37, 211, 102, 0.15); 
-            color: #69f0ae; 
-            border: 1px solid #25d366; 
-        }
-        footer { text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.8em; }
+        footer { text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.9em; }
     </style>
 </head>
 <body>
