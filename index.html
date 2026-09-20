@@ -47,23 +47,31 @@
             width: 100%;
         }
 
-        header {
+       header {
             background-color: var(--surface-color);
             border: 2px solid var(--border-color);
             padding: 20px;
             margin-bottom: 20px;
-            position: relative;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap-reverse;
+            gap: 15px;
+            border-bottom: 1px solid var(--border-color); 
+            padding-bottom: 15px; 
+            margin-bottom: 15px;
         }
 
         .status-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
             background-color: var(--alert-red);
             color: white;
             padding: 5px 10px;
             font-weight: bold;
             animation: pulse 2s infinite;
+            white-space: nowrap;
         }
 
         @keyframes pulse {
@@ -78,7 +86,13 @@
             margin-top: 0;
         }
 
-        h1 { border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h1 { 
+            margin: 0;
+            flex: 1;
+            min-width: 300px;
+            border-bottom: none; /* Lo movemos al header-top */
+            padding-bottom: 0;
+        }
 
         .tech-info {
             display: grid;
@@ -147,12 +161,13 @@
 
         .form-section h2 { border-bottom: 1px dashed var(--border-color); padding-bottom: 10px; }
 
-        iframe {
+       iframe {
             width: 100%;
-            height: 950px; /* Altura ajustada para el formulario de Google */
+            height: 600px; /* Aquí está el cambio */
             border: none;
-            background-color: #ffffff; /* Fondo blanco forzado para el iframe de Google Forms para que sea legible */
+            background-color: #ffffff;
             border-radius: 4px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
         }
 
         /* Botón flotante WhatsApp */
@@ -183,8 +198,10 @@
 
     <div class="container">
         <header>
-            <div class="status-badge">ACTIVO 24/7</div>
+            <div class="header-top">
             <h1>Orden de Servicio - Hnos. Martínez</h1>
+            <div class="status-badge">ACTIVO 24/7</div>
+        </div>
             <div class="tech-info">
                 <div>FOLIO BASE: <span>HM-2026</span></div>
                 <div>ESTADO: <span>DISPONIBLE PARA DESPLIEGUE</span></div>
