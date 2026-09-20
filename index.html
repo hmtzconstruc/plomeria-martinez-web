@@ -86,15 +86,7 @@
             margin-top: 0;
         }
 
-        h1 { 
-            margin: 0;
-            flex: 1;
-            min-width: 300px;
-            border-bottom: none; /* Lo movemos al header-top */
-            padding-bottom: 0;
-        }
-
-        .tech-info {
+            .tech-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
@@ -188,7 +180,55 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
             z-index: 1000;
         }
+/* --- Ajustes de Marca --- */
+        .brand-box {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .doc-type {
+            font-size: 0.8em;
+            color: var(--text-muted);
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+        }
+        .brand-title {
+            font-size: 2.2em;
+            color: white;
+            letter-spacing: 2px;
+            margin: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .brand-title span {
+            color: var(--warn-yellow);
+        }
 
+        /* --- Etiquetas de Prioridad (Semáforo) --- */
+        .prio-badge {
+            padding: 5px 10px;
+            font-size: 0.85em;
+            font-weight: bold;
+            border-radius: 3px;
+            display: inline-block;
+            text-align: center;
+            min-width: 90px;
+        }
+        .prio-critica { 
+            background-color: rgba(211, 47, 47, 0.15); 
+            color: #ff5252; 
+            border: 1px solid #d32f2f; 
+        }
+        .prio-alta { 
+            background-color: rgba(255, 193, 7, 0.15); 
+            color: #ffd54f; 
+            border: 1px solid #ffc107; 
+        }
+        .prio-programada { 
+            background-color: rgba(37, 211, 102, 0.15); 
+            color: #69f0ae; 
+            border: 1px solid #25d366; 
+        }
         footer { text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.8em; }
     </style>
 </head>
@@ -198,8 +238,11 @@
 
     <div class="container">
         <header>
-            <div class="header-top">
-            <h1>Orden de Servicio - Hnos. Martínez</h1>
+      <div class="header-top">
+            <div class="brand-box">
+                <span class="doc-type">ORDEN DE SERVICIO</span>
+                <h1 class="brand-title">HNOS. <span>MARTÍNEZ</span></h1>
+            </div>
             <div class="status-badge">ACTIVO 24/7</div>
         </div>
             <div class="tech-info">
@@ -226,34 +269,44 @@
 
         <section>
             <h2>Catálogo de Intervenciones Técnicas</h2>
-            <table>
+           <table>
                 <thead>
                     <tr>
                         <th>Categoría</th>
                         <th>Descripción de Maniobras</th>
-                        <th>Prioridad</th>
+                        <th>Nivel de Alerta</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><strong>PLOMERÍA</strong></td>
                         <td>Reparación de red hidráulica, detección de fugas presurizadas, sellado de tuberías y cambio de herrajes.</td>
-                        <td>ALTA</td>
+                        <td><span class="prio-badge prio-alta">ALTA</span></td>
                     </tr>
                     <tr>
                         <td><strong>ELECTRICIDAD</strong></td>
                         <td>Diagnóstico de cortocircuitos, balanceo de cargas, reemplazo de cableado y centros de distribución.</td>
-                        <td>CRÍTICA</td>
+                        <td><span class="prio-badge prio-critica">CRÍTICA</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>INSTALACIONES DE GAS</strong></td>
+                        <td>Reparaciones, hermetismo y conexión de tuberías y equipos a gas.</td>
+                        <td><span class="prio-badge prio-critica">CRÍTICA</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>CALENTADORES</strong></td>
+                        <td>Reparación, instalación y mantenimiento (preventivo y correctivo) a calentadores de agua a gas, eléctricos y solares.</td>
+                        <td><span class="prio-badge prio-alta">ALTA</span></td>
                     </tr>
                     <tr>
                         <td><strong>DESTAPE DE DRENAJES</strong></td>
                         <td>Desazolve de red sanitaria, sondeo mecánico de tuberías obstruidas y limpieza profunda.</td>
-                        <td>ALTA</td>
+                        <td><span class="prio-badge prio-alta">ALTA</span></td>
                     </tr>
                     <tr>
                         <td><strong>MANTENIMIENTO GENERAL</strong></td>
                         <td>Diagnóstico preventivo de infraestructura, reparaciones menores e inspección de instalaciones en el estado de Morelos.</td>
-                        <td>PROGRAMADA</td>
+                        <td><span class="prio-badge prio-programada">PROGRAMADA</span></td>
                     </tr>
                 </tbody>
             </table>
